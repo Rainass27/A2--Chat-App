@@ -1,0 +1,138 @@
+:root {
+  --bg: #f7f8fa;
+  --panel: #ffffff;
+  --text: #1d1f23;
+  --muted: #000000;
+  --bubble-me: #e263ad;
+  --bubble-them: hwb(320 88% 0%);
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Dark mode */
+.app.dark {
+  --bg: #0e1116;
+  --panel: #ffffff;
+  --text: #000000;
+  --muted: #a1a7b3;
+  --bubble-me: #e263ad;
+  --bubble-them: hwb(320 88% 0%);
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Chat list */
+.chat-list {
+  padding: 12px;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.chat-item:hover {
+  background: rgba(226, 61, 157, 0.08);
+}
+
+.chat-item.active {
+  background: rgba(88, 101, 242, 0.15);
+}
+
+.chat-item .meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-item .name {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.chat-item .preview {
+  font-size: 0.9rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Chat window */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.message.me {
+  align-self: flex-end;
+  background: var(--bubble-me);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.message.them {
+  align-self: flex-start;
+  background: var(--bubble-them);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+
+.msg-time {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-left: 6px;
+}
+
+/* Input */
+.input-bar {
+  background: var(--panel);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.emoji-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 0 0;
+}
+
+/* TopBar */
+.topbar {
+  background: var(--panel);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Responsive: collapse chat list on small screens if you want full width chat */
+@media (max-width: 768px) {
+  .chat-window {
+    height: calc(100vh - 240px);
+  }
+}
+
